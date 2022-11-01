@@ -11,5 +11,17 @@ Token, User
 const ipfshash = "QmaXzZhcYnsisuue5WRdQDH6FDvqkLQX1NckLqBYeYYEfm"
 
 export function handleTransfer(event: TransferEvent): void {
+  let token = Token.load(event.params.tokenId.toString());
+  if (!token) {
+    token = new Token(event.params.tokenId.toString());
+    token.tokenID = event.params.tokenId;
+ 
+    token.tokenURI = "/" + event.params.tokenId.toString() + ".json";
+
+    let metadata = ipfs.cat(ipfshash + token.tokenURI);
+    if (metadata) {
+      const value = json.fromBytes(metadata).toObject()
+    }
+  }
  }
  
