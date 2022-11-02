@@ -21,6 +21,13 @@ export function handleTransfer(event: TransferEvent): void {
     let metadata = ipfs.cat(ipfshash + token.tokenURI);
     if (metadata) {
       const value = json.fromBytes(metadata).toObject()
+      if (value) {
+        const image = value.get('image')
+        const name = value.get('name')
+        const description = value.get('description')
+        const externalURL = value.get('external_url')
+          
+      }
     }
   }
  }
