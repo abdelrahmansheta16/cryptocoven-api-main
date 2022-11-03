@@ -26,6 +26,14 @@ export function handleTransfer(event: TransferEvent): void {
         const name = value.get('name')
         const description = value.get('description')
         const externalURL = value.get('external_url')
+
+        if (name && image && description && externalURL) {
+          token.name = name.toString()
+          token.image = image.toString()
+          token.externalURL = externalURL.toString()
+          token.description = description.toString()
+          token.ipfsURI = 'ipfs.io/ipfs/' + ipfshash + token.tokenURI
+        }
           
       }
     }
