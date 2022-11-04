@@ -34,6 +34,15 @@ export function handleTransfer(event: TransferEvent): void {
           token.description = description.toString()
           token.ipfsURI = 'ipfs.io/ipfs/' + ipfshash + token.tokenURI
         }
+
+        const coven = value.get('coven')
+        if (coven) {
+          let covenData = coven.toObject()
+          const type = covenData.get('type')
+          if (type) {
+            token.type = type.toString()
+          }
+        }
           
       }
     }
