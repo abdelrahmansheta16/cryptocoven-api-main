@@ -42,6 +42,19 @@ export function handleTransfer(event: TransferEvent): void {
           if (type) {
             token.type = type.toString()
           }
+
+          const birthChart = covenData.get('birthChart')
+          if (birthChart) {
+            const birthChartData = birthChart.toObject()
+            const sun = birthChartData.get('sun')
+            const moon = birthChartData.get('moon')
+            const rising = birthChartData.get('rising')
+            if (sun && moon && rising) {
+              token.sun = sun.toString()
+              token.moon = moon.toString()
+              token.rising = rising.toString()
+            }
+          }
         }
           
       }
