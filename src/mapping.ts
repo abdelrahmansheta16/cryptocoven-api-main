@@ -60,5 +60,9 @@ export function handleTransfer(event: TransferEvent): void {
       }
     }
   }
+
+  token.updatedAtTimestamp = event.block.timestamp;
+  token.owner = event.params.to.toHexString();
+  token.save();
  }
  
