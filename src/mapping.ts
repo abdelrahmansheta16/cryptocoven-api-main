@@ -1,0 +1,15 @@
+import {
+  Transfer as TransferEvent,
+  Token as TokenContract
+} from '../generated/Token/Token'
+import { ipfs, json } from '@graphprotocol/graph-ts'
+
+import {
+Token, User
+} from '../generated/schema'
+
+const ipfshash = "QmaXzZhcYnsisuue5WRdQDH6FDvqkLQX1NckLqBYeYYEfm"
+
+export function handleTransfer(event: TransferEvent): void {
+ }
+ 
